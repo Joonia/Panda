@@ -65,26 +65,17 @@ bottomW['median'] = bottomW.median(axis=1)
 
 median = Twid['median']
 
+medianLenght = len(median)
 
+medianSliced = []
+medianSlicedLow = []
+medianSlicedHigh = []
 
+for i in xrange(0,medianLenght,4):
+    medianSliced.append(median[i:4+i])
 
-#for Thk in MischD:
-#   for i in Thk:
-
-#       print sum (i, i+1,i+2, i+3, i+4)
- 
-#       MischDThkMed=i.median
-#       print MischDThkMed
-       
-       
-       
-       
-       
-       
-    
-        
-      
-
-
-
-
+for i in range(0,len(medianSliced)):
+    if i % 2 == 0:
+        medianSlicedLow.append(medianSliced[i])
+    else:
+        medianSlicedHigh.append(medianSliced[i])
