@@ -6,8 +6,11 @@ Created on Fri Jun 03 13:49:34 2016
 """
 import csv
 import numpy
-reader=csv.reader(open("C:\\Users\\Jola\\Desktop\\PYTHON\\Misch-d_1_BA.csv","rb"),delimiter=',')
-x=list(reader)
+
+path = "C:\\Users\\Jola\\Documents\\GitHub\\Panda\\Misch-d_1_BA.csv"
+
+#reader=csv.reader(open(path,"rb"),delimiter=',')
+#x=list(reader)
 #Thk=x[16:19]
 #TW=x[20:23]
 #MW=x[25:28]
@@ -17,7 +20,7 @@ x=list(reader)
 #result=numpy.array(list(csv.reader(open("L:\\ale\\substrate_core\\35 Etching Trials\\Misch-d\\Misch-d_1_BA.csv","rb"),delimiter=','))).astype('float')
 
 import pandas as pd
-df = pd.read_csv("C:\\Users\\Jola\\Desktop\\PYTHON\\Misch-d_1_BA.csv")
+df = pd.read_csv(path)
 #saved_column = df['T4_Thk(um)'] #you can also use df['column_name']
 #saved_column2 = df['T4_TW(um)'] 
 #saved_column3 = df['T3_TW(um)'] 
@@ -60,29 +63,18 @@ middleW['median'] = middleW.median(axis=1)
 bottomW=MischD.ix[:,'T1_BW(um)':'T4_BW(um)']
 bottomW['median'] = bottomW.median(axis=1)
 
-for Thk in MischD:
-   for i in Thk:
+median = Twid['median']
 
-       print sum (i, i+1,i+2, i+3, i+4)
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-           
-           
-           
-           
-       
-       
-       MischDThkMed=i.median
-       print MischDThkMed
+
+
+
+#for Thk in MischD:
+#   for i in Thk:
+
+#       print sum (i, i+1,i+2, i+3, i+4)
+ 
+#       MischDThkMed=i.median
+#       print MischDThkMed
        
        
        
