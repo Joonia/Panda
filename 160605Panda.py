@@ -68,8 +68,8 @@ median = Twid['median']
 medianLenght = len(median)
 
 medianSliced = []
-medianSlicedLow = []
-medianSlicedHigh = []
+medianSlicedLow = []    # this stores first 4 values (approx 40)
+medianSlicedHigh = []   # this stores next 4 values (approx 60)
 
 for i in xrange(0,medianLenght,4):
     medianSliced.append(median[i:4+i])
@@ -79,3 +79,4 @@ for i in range(0,len(medianSliced)):
         medianSlicedLow.append(medianSliced[i])
     else:
         medianSlicedHigh.append(medianSliced[i])
+
