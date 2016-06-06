@@ -4,13 +4,15 @@ Created on Fri Jun 03 13:49:34 2016
 
 @author: klocek
 """
-import csv
 import numpy
 import pandas as pd
 import glob
 import sys, os
           
 path = os.path.dirname(sys.argv[0])    # gets the path automatically    
+
+def medianNumPy(lst):
+    return numpy.median(numpy.array(lst))
 
 glob.glob('/Misch-d_*.csv')
 allFiles = glob.glob(path + "/Misch-d_*.csv")
@@ -41,6 +43,8 @@ medianLenght = len(median)
 medianSliced = []
 medianSlicedLow = []    # this stores first 4 values (approx 40)
 medianSlicedHigh = []   # this stores next 4 values (approx 60)
+median4High = []
+median4Low = []
 
 for i in xrange(0,medianLenght,4):
     medianSliced.append(median[i:4+i])
@@ -48,6 +52,8 @@ for i in xrange(0,medianLenght,4):
 for i in range(0,len(medianSliced)):
     if i % 2 == 0:
         medianSlicedLow.append(medianSliced[i])
+        median4Low.append(medianNumPy(medianSliced[i]))
     else:
         medianSlicedHigh.append(medianSliced[i])
+        median4High.append(medianNumPy(medianSliced[i]))
 
