@@ -6,42 +6,13 @@ Created on Fri Jun 03 13:49:34 2016
 """
 import csv
 import numpy
-
-path = "C:\\Users\\Jola\\Documents\\GitHub\\Panda\\Misch-d_1_BA.csv"
-
-#reader=csv.reader(open(path,"rb"),delimiter=',')
-#x=list(reader)
-#Thk=x[16:19]
-#TW=x[20:23]
-#MW=x[25:28]
-
-#result=numpy.array(x).astype('float')
-
-#result=numpy.array(list(csv.reader(open("L:\\ale\\substrate_core\\35 Etching Trials\\Misch-d\\Misch-d_1_BA.csv","rb"),delimiter=','))).astype('float')
-
 import pandas as pd
-df = pd.read_csv(path)
-#saved_column = df['T4_Thk(um)'] #you can also use df['column_name']
-#saved_column2 = df['T4_TW(um)'] 
-#saved_column3 = df['T3_TW(um)'] 
-#saved_column4 = df['T2_TW(um)'] 
-#saved_column5 = df['T1_TW(um)'] 
-Thk=df.ix[:,'T1_Thk(um)':'T4_Thk(um)']
-Thk['median'] = Thk.median(axis=1)
-
-Twid=df.ix[:,'T1_TW(um)':'T4_TW(um)']
-Twid['median'] = Twid.median(axis=1)
-
-middleW=df.ix[:,'T1_MW(um)':'T4_MW(um)']
-middleW['median'] = middleW.median(axis=1)
-
-bottomW=df.ix[:,'T1_BW(um)':'T4_BW(um)']
-bottomW['median'] = bottomW.median(axis=1)
-
 import glob
-glob.glob('/Misch-d_*.csv')
+import sys, os
+          
+path = os.path.dirname(sys.argv[0])    # gets the path automatically    
 
-path =r'C:\\Users\\Jola\\Desktop\\PYTHON' # use your path
+glob.glob('/Misch-d_*.csv')
 allFiles = glob.glob(path + "/Misch-d_*.csv")
 frame = pd.DataFrame()
 list_ = []
